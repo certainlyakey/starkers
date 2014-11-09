@@ -1,0 +1,36 @@
+// Functions
+
+@function r($grayscale-rgb-number){
+	@return rgb($grayscale-rgb-number,$grayscale-rgb-number,$grayscale-rgb-number)
+}
+
+// Reusable extends
+%setliststyling {list-style-type:disc; list-style-position:inside;} //for li
+%pseudoblockelement {display:block; content:''; position:absolute;} //does not include size, positioning coordinates or background-color
+%button-pressed {position:relative; 
+	&:active {top:1px;}
+}
+%textcoloredlink {
+	a {color:inherit; text-decoration:none; }
+}
+%underlinedhover {
+	a:hover {text-decoration:underline; }
+}
+%comma-separated-list {
+	li {display:inline;
+		&:after {content:', ';}
+		&:last-child:after {content:''; }
+	}
+}
+%wp-widget-hiddentitle {.widgettitle {display:none;}}
+%reset-firstitem-margin {&:first-child {margin-left:0;}}
+%has-hidden-submenu {
+	&>ul {display:none; position:absolute;}
+	&:hover>ul {display:block;}
+}
+%has-hidden-span {
+	span {display:none; }
+}
+%no-focus-outline {
+	&:focus {outline:none}
+}
