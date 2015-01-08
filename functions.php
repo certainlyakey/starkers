@@ -83,7 +83,7 @@
 
 
 	//Custom content function with words manual limit
-	function content($limit, $postid, $showmorelink = true) { //Normally, the second parameter provided is '$post->ID'
+	function content($limit, $postid, $showmorelink = 'Читать далее...') { //Normally, the second parameter provided is '$post->ID'
 		$content = explode(' ', get_post_field('post_content', $postid), $limit);
 		if (count($content)>=$limit) {
 			array_pop($content);
@@ -93,7 +93,7 @@
 			$content = str_replace(']]>', ']]&gt;', $content);
 			$content = strip_tags($content,'<br />');
 			$content .= '&hellip;';
-			if ($showmorelink) {$content .= ' <a class="more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
+			if ($showmorelink) {$content .= ' <a class="more-link" href="'. get_permalink($postid) . '">'.$showmorelink.'</a>';}
 		} else {
 			$content = implode(" ",$content);
 			$content = preg_replace('/\[.+\]/','', $content);
