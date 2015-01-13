@@ -82,6 +82,9 @@
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 
+	add_filter('show_admin_bar', '__return_false');
+
+
 	//makes all classes in custom menu dissappear, except noted
 	add_filter('nav_menu_css_class', 'css_attributes_filter', 100, 1); 
 	add_filter('nav_menu_item_id', 'css_attributes_filter', 100, 1);
