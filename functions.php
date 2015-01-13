@@ -44,6 +44,7 @@
 	//Add theme support for various features
 	add_theme_support('post-thumbnails');
 	add_theme_support('menus');
+	add_theme_support('widgets');
 
 
 	// Create menu locations
@@ -59,6 +60,14 @@
 	//Custom post thumbnail sizes
 	// add_image_size( 'miniposter', 96, 130, true ); //(cropped)
 
+	//Register widget areas
+	function widgets_init_now() {
+		register_sidebar( array(
+			'name' => 'Правая колонка'
+			,'id' => 'aside-right'
+		) );
+	}
+	add_action( 'widgets_init', 'widgets_init_now' );
 
 
 	/* ========================================================================================================================
@@ -76,9 +85,8 @@
 	//makes all classes in custom menu dissappear, except noted
 	add_filter('nav_menu_css_class', 'css_attributes_filter', 100, 1); 
 	add_filter('nav_menu_item_id', 'css_attributes_filter', 100, 1);
-	add_filter('page_css_class', 'css_attributes_filter', 100, 1);
 	function css_attributes_filter($var) {
-		return is_array($var) ? array_intersect($var, array('current-menu-item','current-menu-ancestor','current-menu-parent')) : '';
+		return is_array($var) ? array_intersect($var, array('current-menu-item','current_page_item','current-page-ancestor','current-menu-ancestor','current-menu-parent')) : '';
 	}
 
 
