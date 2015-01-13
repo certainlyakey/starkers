@@ -4,6 +4,16 @@
 	@return rgb($grayscale-rgb-number,$grayscale-rgb-number,$grayscale-rgb-number)
 }
 
+// Reusable mixins
+
+@mixin sticky-footer($footer-height) {
+	html, body {height: 100%;}
+	.main {min-height: 100%; margin-bottom: -$footer-height; 
+	}
+	.main:after {content:""; display:block;}
+	.footer, .main:after {height:$footer-height;}
+}
+
 // Reusable extends
 %setliststyling {list-style-type:disc; list-style-position:inside;} //for li
 %pseudoblockelement {display:block; content:''; position:absolute;} //does not include size, positioning coordinates or background-color
