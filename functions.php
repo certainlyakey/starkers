@@ -95,24 +95,24 @@
 
 
 	//Custom content function with words manual limit
-	function content($limit, $postid, $showmorelink = 'Читать далее...') { //Normally, the second parameter provided is '$post->ID'
-		$content = explode(' ', get_post_field('post_content', $postid), $limit);
-		if (count($content)>=$limit) {
-			array_pop($content);
-			$content = implode(" ",$content);
-			$content = preg_replace('/\[.+\]/','', $content);
-			$content = apply_filters('the_content', $content);
-			$content = str_replace(']]>', ']]&gt;', $content);
-			$content = strip_tags($content,'<br />');
-			$content .= '&hellip;';
-			if ($showmorelink) {$content .= ' <a class="more-link" href="'. get_permalink($postid) . '">'.$showmorelink.'</a>';}
-		} else {
-			$content = implode(" ",$content);
-			$content = preg_replace('/\[.+\]/','', $content);
-			$content = apply_filters('the_content', $content);
-			$content = str_replace(']]>', ']]&gt;', $content);
+	function content($limit, $postid, $showmorelink = true, $allowshortcodes = true) {
+		$result = '';
+		$content_full = get_post_field('post_content', $postid);
+		if ($allowshortcodes === false) {
+			$content_full = preg_replace('/\[.+\]/','', $content_full);
 		}
-		return $content;
+		$content_full = apply_filters('the_content', $content_full);
+		$content_full = str_replace(']]>', ']]&gt;', $content_full);
+		$totalWordsAsArray = explode(' ', $content_full, $limit);
+		if (count($totalWordsAsArray)>=$limit) {
+			$imploded = implode(" ",$totalWordsAsArray);
+			$result .= strip_tags($imploded,'<br />');
+			$result .= '&hellip;';
+			if ($showmorelink) {$result .= ' <a class="more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
+		} else {
+			$result .= $content_full;
+		}
+		return $result;
 	}
 
 
