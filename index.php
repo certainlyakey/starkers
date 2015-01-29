@@ -15,13 +15,22 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 
-<?php if ( have_posts() ): ?>
-<h2>Latest Posts</h2>	
-<?php while ( have_posts() ) : the_post(); ?>
-		<?php Starkers_Utilities::get_template_parts( array( 'parts/post' ) ); ?>
-<?php endwhile; ?>
-<?php else: ?>
-<h2>No posts to display</h2>
-<?php endif; ?>
+<div class="central-col">
+
+	<?php if ( have_posts() ): ?>
+
+		<h1>Latest Posts</h1>
+
+		<?php while ( have_posts() ) : the_post(); ?>
+				<?php Starkers_Utilities::get_template_parts( array( 'parts/post' ) ); ?>
+		<?php endwhile; ?>
+
+	<?php else: ?>
+
+		<h1>No posts to display</h1>
+	
+	<?php endif; ?>
+
+</div>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/footer','parts/html-footer') ); ?>

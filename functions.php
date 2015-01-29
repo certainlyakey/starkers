@@ -73,9 +73,10 @@
 
 	/* ========================================================================================================================
 	
-	Reusable functions
+	Actions and filters
 	
 	======================================================================================================================== */
+
 
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 
@@ -83,15 +84,30 @@
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 
-	add_filter('show_admin_bar', '__return_false');
+	//Remove comments from admin
+	function remove_menus(){
+		remove_menu_page( 'edit-comments.php' );//Comments
+	}
+	add_action( 'admin_menu', 'remove_menus' );
 
 
 	//makes all classes in custom menu dissappear, except noted
-	add_filter('nav_menu_css_class', 'css_attributes_filter', 100, 1); 
-	add_filter('nav_menu_item_id', 'css_attributes_filter', 100, 1);
 	function css_attributes_filter($var) {
 		return is_array($var) ? array_intersect($var, array('current-menu-item','current_page_item','current-page-ancestor','current-menu-ancestor','current-menu-parent')) : '';
 	}
+	add_filter('nav_menu_css_class', 'css_attributes_filter', 100, 1); 
+	add_filter('nav_menu_item_id', 'css_attributes_filter', 100, 1);
+
+
+
+	/* ========================================================================================================================
+	
+	Reusable functions
+	
+	======================================================================================================================== */
+
+
+	function custom_is_archive() {return (is_archive() || is_search());} // || is_page_template('template-custompage.php')
 
 
 	//Custom content function with words manual limit
@@ -113,6 +129,14 @@
 			$result .= $content_full;
 		}
 		return $result;
+	}
+
+
+	//Произвольная конвертация русских дат (например, в метах)
+	function dateToRussian($date) {
+		$month = array("january"=>"января", "february"=>"февраля", "march"=>"марта", "april"=>"апреля", "may"=>"мая", "june"=>"июня", "july"=>"июля", "august"=>"августа", "september"=>"сентября", "october"=>"октября", "november"=>"ноября", "december"=>"декабря");
+		$days = array("monday"=>"Понедельник", "tuesday"=>"Вторник", "wednesday"=>"Среда", "thursday"=>"Четверг", "friday"=>"Пятница", "saturday"=>"Суббота", "sunday"=>"Воскресенье");
+		return str_replace(array_merge(array_keys($month), array_keys($days)), array_merge($month, $days), strtolower($date));
 	}
 
 
