@@ -71,24 +71,17 @@
 	add_action( 'widgets_init', 'widgets_init_now' );
 
 
+
 	/* ========================================================================================================================
 	
 	Actions and filters
 	
 	======================================================================================================================== */
 
-
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
-
-
-	//Remove comments from admin
-	function remove_menus(){
-		remove_menu_page( 'edit-comments.php' );//Comments
-	}
-	add_action( 'admin_menu', 'remove_menus' );
 
 
 	//makes all classes in custom menu dissappear, except noted
@@ -102,10 +95,23 @@
 
 	/* ========================================================================================================================
 	
-	Reusable functions
+	Admin changes
 	
 	======================================================================================================================== */
 
+	//Remove comments from admin
+	function remove_menus(){
+		remove_menu_page( 'edit-comments.php' );//Comments
+	}
+	add_action( 'admin_menu', 'remove_menus' );
+
+
+
+	/* ========================================================================================================================
+	
+	Reusable functions
+	
+	======================================================================================================================== */
 
 	function custom_is_archive() {return (is_archive() || is_search());} // || is_page_template('template-custompage.php')
 
@@ -147,6 +153,7 @@
 	
 	======================================================================================================================== */
 
+	//
 
 
 
@@ -156,5 +163,6 @@
 	
 	======================================================================================================================== */
 
+	//
 
 
