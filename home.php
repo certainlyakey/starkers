@@ -11,7 +11,7 @@
 //this allows to output a default post archive (?post_type=post) without need to use a separate custom template
 $news_archive_displayed = false;
 if (get_query_var('post_type') === 'post') {
-	$news_archive_displayed = true;
+	add_filter('body_class','add_bodyclass_newsarchive');
 	include TEMPLATEPATH . '/index.php';
 	//if (get_query_var('post_type') === 'post' && is_home()) {echo 'this is news page and not home page';}
 } else {

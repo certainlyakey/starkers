@@ -2,7 +2,7 @@
 	if (is_singular()) {
 		echo " single-content";
 	}
-	if ((custom_is_archive()) {
+	if (custom_is_archive()) {
 		echo " post-item";
 	}
 	?>">

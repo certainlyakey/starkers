@@ -46,6 +46,7 @@ $mainwidth:940px;
 
 
 // !Scaffold styles
+body {@include baseline-grid($lh);}
 
 
 // !Universal styles

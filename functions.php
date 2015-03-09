@@ -145,6 +145,13 @@
 		return str_replace(array_merge(array_keys($month), array_keys($days)), array_merge($month, $days), strtolower($date));
 	}
 
+	//Add custom body classes to the chosen templates. 
+	//Usage: add_filter('body_class','add_bodyclass_customarchive'); in the template code
+	function add_bodyclass_newsarchive($classes = '') {
+		$classes[] = 'news';
+		return $classes;
+	}
+
 
 
 	/* ========================================================================================================================
