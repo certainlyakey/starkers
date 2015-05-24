@@ -152,6 +152,21 @@
 		return $classes;
 	}
 
+	//Get first paragraph
+	function get_first_paragraph(){
+		global $post;
+		$str = wpautop( get_the_content() );
+		$str = apply_filters('the_content', $str);
+		preg_match('#<p>(.*?)</p>#i', $str, $matches);
+		if (!empty($matches)) {
+			$str = $matches[0];
+			$str = strip_tags($str, '<a><strong><em>');
+			return '<p>' . $str . '</p>';
+		} else {
+			return false;
+		}
+	}
+
 
 
 	/* ========================================================================================================================
