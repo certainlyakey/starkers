@@ -17,7 +17,7 @@
 		if (!has_excerpt() && !is_singular()) {
 			echo content(200,$post->ID); 
 		} else if (has_excerpt()) {
-			echo get_the_excerpt($post->ID);
+			echo get_the_excerpt();
 		}
 		if (is_singular()) {
 			the_content();

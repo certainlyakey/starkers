@@ -33,6 +33,21 @@
 	.main:after {content:""; display:block;}
 	.footer, .main:after {height:$footer-height;}
 }
+@mixin headings($from: 1, $to: 6, $notfirstchild:false){
+	@for $i from $from through $to{
+		@if $notfirstchild == true {
+			h#{$i}:not(:first-child){
+				@content
+			}
+		} @else {
+			h#{$i}{
+				@content
+			}
+		}
+	}
+}
+//usage @include headings(){font-family:sans-serif; ...}
+
 
 // Reusable extends
 %setliststyling {list-style-type:disc; list-style-position:inside;} //for li

@@ -137,6 +137,30 @@
 		return $result;
 	}
 
+	function content($limit, $postid, $showmorelink = true, $allowshortcodes = true) { //Normally, the second parameter provided is '$post->ID'
+			$content = explode(' ', get_post_field('post_content', $postid), $limit);
+			if (count($content)>=$limit) {
+				array_pop($content);
+				$content = implode(" ",$content);
+				if ($allowshortcodes === false) {
+				$content = preg_replace('/\[.+\]/','', $content);
+				}
+				$content = apply_filters('the_content', $content);
+					$content = str_replace(']]>', ']]&gt;', $content);
+				$content = strip_tags($content,'<br />');
+				$content .= '&hellip;';
+				if ($showmorelink) {$content .= ' <a class="more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
+			} else {
+				$content = implode(" ",$content);
+				if ($allowshortcodes === false) {
+					$content = preg_replace('/\[.+\]/','', $content);
+				}
+				$content = apply_filters('the_content', $content);
+				$content = str_replace(']]>', ']]&gt;', $content);
+			}
+			return $content;
+		}
+
 
 	//Произвольная конвертация русских дат (например, в метах)
 	function dateToRussian($date) {
