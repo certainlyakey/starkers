@@ -1,3 +1,6 @@
+//Variables
+$js-on:'html:not(.no-js) &';
+
 // Functions
 
 @function r($grayscale-rgb-number){
@@ -5,6 +8,15 @@
 }
 @function strip-units($number) {
 	@return $number / ($number * 0 + 1);
+}
+//function for url-encoding any color (for using color variables inside SVGs)
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+        $hex: str-slice(ie-hex-str($string), 4);
+        $string:unquote("#{$hex}");
+    }
+    $string: '%23' + $string;
+	@return $string;
 }
 
 // Mixins

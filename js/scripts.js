@@ -1,6 +1,6 @@
 //- @codekit-prepend "jq.fancy-scroll.js"
 
-jQuery(document).ready(function ($) {
+jQuery(function($){ //alias of jQuery(document).ready(function ($) {
 
 
 	/* ========================================================================= */

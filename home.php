@@ -14,20 +14,19 @@ if (get_query_var('post_type') === 'post') {
 	add_filter('body_class','add_bodyclass_newsarchive');
 	include TEMPLATEPATH . '/index.php';
 	//if (get_query_var('post_type') === 'post' && is_home()) {echo 'this is news page and not home page';}
-} else {
+} else { ?>
 
-Starkers_Utilities::get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+<?php include(locate_template('parts/html-header.php')); include(locate_template('parts/header.php')); ?>
 
 <div class="central-col">
 
 	<?php //or custom home page code
 	if ( have_posts() ) while ( have_posts() ) : the_post();
-		Starkers_Utilities::get_template_parts( array( 'parts/post' ) );
+		include(locate_template('parts/post.php'));
 	endwhile; ?>
 
 </div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'parts/footer','parts/html-footer' ) ); 
+<?php include(locate_template('parts/html-footer.php')); include(locate_template('parts/footer.php')); ?>
 
-}
-?>
+<?php } ?>

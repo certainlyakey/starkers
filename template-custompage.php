@@ -3,15 +3,16 @@
  * Template name: Custom template
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+<?php include(locate_template('parts/html-header.php')); include(locate_template('parts/header.php')); ?>
+
 <div class="central-col">
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post();
-		Starkers_Utilities::get_template_parts( array( 'parts/post' ) );
-	endwhile; ?>
+		<?php if ( have_posts() ) while ( have_posts() ) : the_post();
+			include(locate_template('parts/post.php'));
+		endwhile; ?>
 
 	<?php 
 	//custom template code
 	?>
 	</article>
 </div>
-<?php Starkers_Utilities::get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>
+<?php include(locate_template('parts/html-footer.php')); include(locate_template('parts/footer.php')); ?>
