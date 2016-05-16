@@ -60,6 +60,17 @@ $js-on:'html:not(.no-js) &';
 }
 //usage @include headings(){font-family:sans-serif; ...}
 
+@mixin webkit-only {
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		@content
+	}
+}
+
+@mixin ie1011-only {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	   @content
+	}
+}
 
 // Reusable extends
 %setliststyling {list-style-type:disc; list-style-position:inside;} //for li
