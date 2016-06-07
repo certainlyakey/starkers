@@ -5,6 +5,7 @@ It borrows from [BEM](http://www.bem.info)/[7-1 pattern](https://sass-guidelin.e
 BEM naming style: `component__element_modifier`.
 
 Namespaces cheatsheet:
+
 - `o-`: object - reusable, doesn't depend on specific styling (for example, grids, inline lists etc). Should never be overriden
 - `c-`: component=block (with `__elements` and `_modifiers`). Components may be nested and itself have a modifier
 - `u-`: utility - serves only one function (for example, `u-fontsize-large`)
