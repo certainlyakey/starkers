@@ -1,0 +1,46 @@
+/*!
+Theme Name:   Starkers
+Theme URI:    http://example.com/
+Description:  A theme for a site based on Starkers
+Version:      0.1
+Author:       Aleksandr Beliaev
+*/
+
+// !External SASS dependencies
+@import '_dependencies';
+
+// !Abstracts
+@import 'abstracts/global/_functions';
+@import 'abstracts/global/_variables';
+@import 'abstracts/global/_mixins';
+
+// @import 'abstracts/global/wordpress/_variables';
+@import 'abstracts/global/wordpress/_mixins';
+
+// !Base
+@import 'base/_fontface';
+@import 'base/_normalize';
+@import 'base/_normalize_tweaks';
+@import 'base/_base';
+@import 'base/_scaffolding';
+
+// !Vendors
+@import 'vendors/_vendors';
+
+// !Layout
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'layout/_main';
+@import 'layout/_sidebar';
+
+// !Components
+@import 'components/search/_search';
+
+// !Pages
+@import 'pages/_home';
+@import 'pages/_single';
+
+// !Themes
+@import 'themes/_admin';
+@import 'themes/_theme';
+

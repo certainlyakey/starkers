@@ -5,3 +5,4 @@ js/scripts.min.js
 .sass-cache/
 .codekit-cache/
 .DS_Store
+node_modules

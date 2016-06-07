@@ -421,28 +421,3 @@ td,
 th {
   padding: 0;
 }
-
-/* ==========================================================================
-   Custom changes
-   ========================================================================== */
-
-h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, li, figure
-{
-  margin:0; padding:0; 
-}
-
-h1, h2, h3, h4, h5, h6 {  
-  font-weight:normal; font-size:100%; 
-}
-
-ul li {list-style:none;}
-
-a:focus {outline:none}
-
-
-/* Set border-box box-sizing mode */
-
-* {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}

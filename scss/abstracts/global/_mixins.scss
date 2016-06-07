@@ -1,0 +1,115 @@
+// !Mixins
+
+//requires strip-units function
+//@usage @include baseline-grid($lineheight);
+@mixin baseline-grid($baseline, $line-color-01: #ccc, $line-color-02: transparent) {
+  $browser-fz-base:16;
+  @if (unit($baseline) == 'rem') {
+    $baseline:$baseline*$browser-fz-base;
+  }
+  $baseline:strip-units($baseline);
+  .baselinegrided {
+    width:100%; height:100%; position:absolute; top:0; left:0; z-index:10000; display:none; pointer-events:none;
+    background: -webkit-repeating-linear-gradient(180deg, $line-color-02, $line-color-02 $baseline - 1px, $line-color-01 $baseline + px);
+    background: -moz-repeating-linear-gradient(180deg, $line-color-02, $line-color-02 $baseline - 1px, $line-color-01 ($baseline + px));
+    background: -ms-repeating-linear-gradient(180deg, $line-color-02, $line-color-02 $baseline - 1px, $line-color-01 ($baseline + px));
+    background: repeating-linear-gradient(180deg, $line-color-02, $line-color-02 $baseline - 1px, $line-color-01 ($baseline + px));
+    background-size:100% ($baseline + px);
+  }
+}
+
+@mixin sticky-footer($footer-height) {
+  html, body {height: 100%;}
+  .main {min-height: 100%; margin-bottom: -$footer-height; 
+  }
+  .main:after {content:""; display:block;}
+  .footer, .main:after {height:$footer-height;}
+}
+
+//@usage @include headings(){font-family:sans-serif; ...}
+@mixin headings($from: 1, $to: 6, $notfirstchild:false){
+  @for $i from $from through $to{
+    @if $notfirstchild == true {
+      h#{$i}:not(:first-child){
+        @content
+      }
+    } @else {
+      h#{$i}{
+        @content
+      }
+    }
+  }
+}
+
+@mixin webkit-only {
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @content
+  }
+}
+
+@mixin ie1011-only {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     @content
+  }
+}
+
+// !Extends
+
+//apply to li
+%o-set-list-styling {
+  list-style-type:disc; 
+  list-style-position:inside;
+}
+%o-pseudoblockelement {
+  display:block; 
+  content:''; 
+  position:absolute;
+}
+%u-button-pressed {
+  position:relative; 
+  &:active {
+    top:1px;
+  }
+}
+%u-textcoloredlink {
+  a {
+    color:inherit; 
+    text-decoration:none; 
+  }
+}
+%u-underlinedhover {
+  a:hover {
+    text-decoration:underline; 
+  }
+}
+%o-comma-separated-list {
+  li {
+    display:inline;
+    &:after {
+      content:', ';
+    }
+    &:last-child:after {
+      content:'';
+    }
+  }
+}
+%u-reset-firstitem-margin-x {
+  &:first-child {
+    margin-left:0;
+  }
+}
+%u-reset-firstitem-margin-y {
+  &:first-child {
+    margin-top:0;
+  }
+}
+%u-has-hidden-span {
+  span {
+    display:none;
+  }
+}
+%u-no-focus-outline {
+  &:focus {
+    outline:none;
+  }
+}

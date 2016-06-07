@@ -1,27 +1,7 @@
-//Variables
-$js-on:'html:not(.no-js) &';
-
-// Functions
-
-@function r($grayscale-rgb-number){
-	@return rgb($grayscale-rgb-number,$grayscale-rgb-number,$grayscale-rgb-number)
-}
-@function strip-units($number) {
-	@return $number / ($number * 0 + 1);
-}
-//function for url-encoding any color (for using color variables inside SVGs)
-@function encodecolor($string) {
-	@if type-of($string) == 'color' {
-        $hex: str-slice(ie-hex-str($string), 4);
-        $string:unquote("#{$hex}");
-    }
-    $string: '%23' + $string;
-	@return $string;
-}
-
-// Mixins
+//Mixins
 
 //requires strip-units function
+//@usage: @include baseline-grid($lh);
 @mixin baseline-grid($baseline, $line-color-01: #ccc, $line-color-02: transparent) {
 	$browser-fz-base:16;
 	@if (unit($baseline) == 'rem') {
@@ -45,6 +25,8 @@ $js-on:'html:not(.no-js) &';
 	.main:after {content:""; display:block;}
 	.footer, .main:after {height:$footer-height;}
 }
+
+//@usage: @include headings(){font-family:sans-serif; ...}
 @mixin headings($from: 1, $to: 6, $notfirstchild:false){
 	@for $i from $from through $to{
 		@if $notfirstchild == true {
@@ -58,7 +40,6 @@ $js-on:'html:not(.no-js) &';
 		}
 	}
 }
-//usage @include headings(){font-family:sans-serif; ...}
 
 @mixin webkit-only {
 	@media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -72,8 +53,10 @@ $js-on:'html:not(.no-js) &';
 	}
 }
 
-// Reusable extends
-%setliststyling {list-style-type:disc; list-style-position:inside;} //for li
+// Extends
+%setliststyling {
+	list-style-type:disc; list-style-position:inside;
+} //for li
 %pseudoblockelement {display:block; content:''; position:absolute;} //does not include size, positioning coordinates or background-color
 %button-pressed {position:relative; 
 	&:active {top:1px;}
@@ -90,7 +73,6 @@ $js-on:'html:not(.no-js) &';
 		&:last-child:after {content:''; }
 	}
 }
-%wp-widget-hiddentitle {.widgettitle {display:none;}}
 %reset-firstitem-margin-x {&:first-child {margin-left:0;}}
 %reset-firstitem-margin-y {&:first-child {margin-top:0;}}
 %has-hidden-submenu {
