@@ -9,10 +9,14 @@ Namespaces cheatsheet:
 - `o-`: object - reusable, doesn't depend on specific styling (for example, grids, inline lists etc). Should never be overriden
 - `c-`: component=block (with `__elements` and `_modifiers`). Components may be nested and itself have a modifier
 - `u-`: utility - serves only one function (for example, `u-fontsize-large`)
-- `t-`: themed class (for example, body class, `t-post`)
+- `t-`: themed class (for example, dark/light background class, `t-light`)
 - `s-`: new styling context or scope inside which tag selectors will be used (for example, `.s-textcontent` with `.s-textcontent p` inside)
 - `is-`, `has-`: indicate UI element's state or condition (`is-open`, `has-dropdown` etc)
 - `_`: hacks - should be combined with other prefixes (`_c-footer`)
 - `js-`: Javascript related styling (won't apply if Javascript is turned off)
 
-TODO: replace extends with mixins
+TODO: 
+
+1. replace extends with mixins (see [this](http://csswizardry.com/2016/02/mixins-better-for-performance/));
+2. think about the role of objects in a preprocessor-based process;
+2. consider adding special prefix for body classes (`p-` or `b-`) for easier recognition in the code.
