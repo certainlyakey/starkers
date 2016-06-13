@@ -1,6 +1,6 @@
 // !Global mixins
 
-//requires strip-units function
+//requires strip-units function (included with bourbon)
 //@usage @include baseline-grid($lineheight);
 @mixin baseline-grid($baseline, $line-color-01: #ccc, $line-color-02: transparent) {
   $browser-fz-base:16;
@@ -82,7 +82,7 @@
     text-decoration:underline; 
   }
 }
-%o-comma-separated-list {
+%u-comma-separated-list {
   li {
     display:inline;
     &:after {

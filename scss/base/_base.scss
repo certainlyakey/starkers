@@ -1,0 +1,10 @@
+body {
+  background-color:$color-bg; 
+  font:#{$fs}/#{$lh} $ff; 
+}
+
+a {
+  color:$color-link; 
+  text-decoration:none; 
+}
+

@@ -1,1 +1,14 @@
-//Site mixins
+//Per site mixins
+
+// !Utilities
+%u-underlinedhover {
+  a:hover {
+    text-decoration:underline; // or border-bottom, or pseudoelement?.. You decide!
+  }
+}
+
+
+// !Objects
+%o-horizontal-text-menu {
+  // reuse me here and there!
+}
