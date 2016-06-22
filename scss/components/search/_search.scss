@@ -1,4 +1,7 @@
 .c-search-form {
+  //Local, scoped variables
+  $search_width:200px;
+
   &__search-input {
     &_disabled {
       

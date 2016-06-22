@@ -21,6 +21,9 @@ Author:       Aleksandr Beliaev
 @import 'abstracts/_variables';
 @import 'abstracts/_mixins';
 
+// !Vendors
+@import 'vendors/_vendors';
+
 // !Base
 @import 'base/_fontface';
 @import 'base/_normalize';
@@ -28,8 +31,8 @@ Author:       Aleksandr Beliaev
 @import 'base/_base';
 @import 'base/_scaffolding';
 
-// !Vendors
-@import 'vendors/_vendors';
+// !Generated
+@import 'generated/_svg-sprite';
 
 // !Layout
 @import 'layout/_header';

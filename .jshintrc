@@ -1,0 +1,5 @@
+{
+    "jquery"        : true,
+    "laxcomma"      : true,
+    "debug"         : true
+}

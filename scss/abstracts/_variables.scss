@@ -8,12 +8,16 @@ $ux:10px;
 $uy:6px;
 
 //Typography
+// xxs-xs-s-[m]-l-xl-xxl
 $ff:Corbel, Lucida Grande, Verdana, sans-serif;
 $fs:15px;
 $lh:23px;
 
 //Width
 $mainwidth:940px;
+
+//Transitions & animations
+$transition-main:ease-out .4s all;
 
 //Breakpoints
 

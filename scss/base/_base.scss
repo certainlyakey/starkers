@@ -8,3 +8,6 @@ a {
   text-decoration:none; 
 }
 
+.s-textcontent {
+  @extend %o-textcontent;
+}

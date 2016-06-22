@@ -26,8 +26,11 @@
   ======================================================================================================================== */
 
   function starkers_script_enqueuer() {
-    wp_register_script( 'site', get_template_directory_uri().'/js/scripts.min.js', array( 'jquery' ) );
+    wp_register_script( 'site', get_template_directory_uri().'/js/scripts.min.js', array( 'jquery'/*, 'slick'*/ ), false, true );
     wp_enqueue_script( 'site' );
+
+    // wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js', array(), false, true );
+    // wp_enqueue_script( 'slick' );
 
     wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
     wp_enqueue_style( 'screen' );
@@ -56,10 +59,19 @@
     )
   );
 
+
   // Main thumbnail size
   // set_post_thumbnail_size( 80, 80, true );
   //Custom post thumbnail sizes
   // add_image_size( 'miniposter', 96, 130, true ); //(cropped)
+
+  // crop large thumbnail
+  if(false === get_option('large_crop')) {
+    add_option('large_crop', '1');
+  } else {
+    update_option('large_crop', '1');
+  }
+
 
   //Register widget areas
   function widgets_init_now() {
@@ -127,26 +139,6 @@
 
 
   //Custom content function with words manual limit
-  function content($limit, $postid, $showmorelink = true, $allowshortcodes = true) {
-    $result = '';
-    $content_full = get_post_field('post_content', $postid);
-    if ($allowshortcodes === false) {
-      $content_full = preg_replace('/\[.+\]/','', $content_full);
-    }
-    $content_full = apply_filters('the_content', $content_full);
-    $content_full = str_replace(']]>', ']]&gt;', $content_full);
-    $totalWordsAsArray = explode(' ', $content_full, $limit);
-    if (count($totalWordsAsArray)>=$limit) {
-      $imploded = implode(" ",$totalWordsAsArray);
-      $result .= strip_tags($imploded,'<br />');
-      $result .= '&hellip;';
-      if ($showmorelink) {$result .= ' <a class="more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
-    } else {
-      $result .= $content_full;
-    }
-    return $result;
-  }
-
   function content($limit, $postid, $showmorelink = true, $allowshortcodes = true) { //Normally, the second parameter provided is '$post->ID'
       $content = explode(' ', get_post_field('post_content', $postid), $limit);
       if (count($content)>=$limit) {
