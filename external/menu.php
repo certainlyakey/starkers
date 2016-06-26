@@ -3,7 +3,7 @@
 // custom_wp_nav_menu('frontmenu','c-assortedmenu','nav','frontmenu_thumb');
 // or:
 // custom_wp_nav_menu('frontmenu','c-assortedmenu','');
-function custom_wp_nav_menu($menu_location, $menu_class_base, $container = 'nav', $image_size = null) {
+function custom_wp_nav_menu($menu_location, $menu_class_base, $container = 'nav', $image_size = null, $additional_classes = '') {
   if ($container === 'section') {
     echo '<section class="'.$menu_class_base.'__section">';
     $locations = get_nav_menu_locations();
@@ -20,8 +20,8 @@ function custom_wp_nav_menu($menu_location, $menu_class_base, $container = 'nav'
         )
       ), 
       'container' => $container, 
-      'container_class' => $menu_class_base,
-      'items_wrap' => '<ul'.(($container === '') ? ' class="'.$menu_class_base.'"' : '').'>%3$s</ul>',
+      'container_class' => $menu_class_base.' '.$additional_classes,
+      'items_wrap' => '<ul'.(($container === '') ? ' class="'.$menu_class_base.' '.$additional_classes.'"' : '').'>%3$s</ul>',
       'theme_location' => $menu_location 
     )
   );
