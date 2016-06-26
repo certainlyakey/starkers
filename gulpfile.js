@@ -14,14 +14,14 @@ var jshint       = require('gulp-jshint');
 svgSpriteConfig  = {
   mode           : {
     css          : {
-      bust       : false,
+      bust       : true,
       dest       : '.',
-      'prefix'   : '.u-spr-svg-%s',
-     'dimensions': '-size',
-      'sprite'   : 'img/sprite.svg',
+      prefix     : '.u-spr-svg-%s',
+      dimensions : '-size',
+      sprite     : 'img/sprite.svg',
       render     : {
         scss     : {
-          'dest' : '../scss/generated/_svg-sprite.scss'
+          dest   : 'scss/generated/_svg-sprite.scss'
         }
       }
     }
@@ -30,7 +30,7 @@ svgSpriteConfig  = {
 
 gulp.task('svg-sprites', function() {
   gulp.src('src/img/svg/*.svg')
-    // .pipe(svgsprite(svgSpriteConfig)).on('error', function(error){ console.log(error); })
+    .pipe(svgsprite(svgSpriteConfig)).on('error', function(error){ console.log(error); })
     .pipe(gulp.dest('./'))
     .pipe(notify("SVG sprite created successfully!"))
 });

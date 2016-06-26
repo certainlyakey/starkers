@@ -86,4 +86,8 @@ class CommonMenu_Walker extends Walker_Nav_Menu {
   function end_el( &$output, $item, $depth = 0, $args = array() ) {
     $output .= '';
   }
+
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+      $output .= '<ul class="'.$this->container_class.'__submenu">';
+  }
 }

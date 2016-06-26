@@ -1,0 +1,12 @@
+// reusable styled component
+// usage: @include c-bright-menu(&);
+@mixin c-bright-menu($base_class) {
+  & {
+    text-align:center; 
+    margin:0 auto;
+  }
+
+  @at-root .#{$base_class}__item {
+    
+  }
+}
