@@ -151,7 +151,7 @@
           $content = str_replace(']]>', ']]&gt;', $content);
         $content = strip_tags($content,'<br />');
         $content .= '&hellip;';
-        if ($showmorelink) {$content .= ' <a class="more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
+        if ($showmorelink) {$content .= ' <a class="c-more-link" href="'. get_permalink($postid) . '">Читать далее...</a>';}
       } else {
         $content = implode(" ",$content);
         if ($allowshortcodes === false) {

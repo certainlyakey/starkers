@@ -20,16 +20,24 @@
     <?php 
     echo get_the_post_thumbnail( $post->ID, 'thumbnail', array('class' => $class_prefix.'__thumbnail'));
 
-    if (!has_excerpt() && !is_singular()) {
+    //post item without excerpt
+    if (!is_singular() && !has_excerpt()) {
       echo content(200,$post->ID); 
-    } else if (has_excerpt()) {
-      echo get_the_excerpt();
-    }
-    if (is_singular()) {
+    } 
+    //post item with excerpt
+    else if (!is_singular() && has_excerpt()) {
+      echo '<div class="'.$class_prefix.'__post-excerpt">'.get_the_excerpt().'</div>';
+    } 
+    //singular without excerpt
+    else if (is_singular() && !has_excerpt()) {
       the_content();
-    } else {
-      echo '<a class="c-more-link" href="'.get_permalink($post->ID).'">Читать далее...</a>';
+    } 
+    //singular with excerpt
+    else {
+      echo '<div class="'.$class_prefix.'__post-excerpt">'.get_the_excerpt().'</div>';
+      the_content();
     }
+    ?>
     ?>
   </div>
 <?php 
