@@ -20,6 +20,16 @@ $mainwidth:940px;
 $transition-main:ease-out .4s all;
 
 //Breakpoints
+// With mq():
+// $mq-breakpoints: (
+//   small:  420px,
+//   medium: 800px,
+//   large:  980px,
+//   xlarge: 1300px
+// );
+// Usage:
+//@include mq($from: medium) {
+// }
 
 //Data URIs
 //$data-search-icon: 'data:image/png;base64';
