@@ -22,6 +22,7 @@ My additions:
 TODO: 
 
 1. replace extends with mixins (see [this](http://csswizardry.com/2016/02/mixins-better-for-performance/));
-2. think about the role of objects in a preprocessor-based process;
+2. replace `page.php` and `single.php` with `singular.php` (from WP4.3+)
 3. remove `external/starkers-utilities.php`
-4. handle gulp build errors so it wouldn't end process immediately
+4. move more folders into `src` directory (files that shouldn't be on prod server)
+5. remove `search.php`
