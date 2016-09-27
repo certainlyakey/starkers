@@ -4,7 +4,7 @@ It borrows from [BEM](http://www.bem.info)/[7-1 pattern](https://sass-guidelin.e
 
 BEM naming style: `component__element_modifier`.
 
-Namespaces cheatsheet:
+##Namespaces cheatsheet
 
 - `o-`: object - reusable, doesn't depend on specific styling (for example, grids, inline lists etc). Should never be overriden
 - `c-`: component=block (with `__elements` and `_modifiers`). Components may be nested and itself have a modifier
@@ -16,11 +16,7 @@ Namespaces cheatsheet:
 - `js-`: Javascript related styling (won't apply if Javascript is turned off)
 - `p-`: specific page related styling (body classes, for example, `p-page`. Requires a function in `functions.php`)
 
-My additions:
-
-- `p-`: specific page related styling (body classes, for example, `p-page`. Requires a function in `functions.php`)
-
-TODO: 
+##TODO
 
 1. replace extends with mixins (see [this](http://csswizardry.com/2016/02/mixins-better-for-performance/))
 2. replace `page.php` and `single.php` with `singular.php` (from WP4.3+)
