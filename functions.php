@@ -29,7 +29,7 @@
     wp_register_script( 'site', get_template_directory_uri().'/js/scripts.min.js', array( 'jquery3' ), false, true );
     wp_enqueue_script( 'site' );
     
-    wp_register_script( 'jquery3', 'https://code.jquery.com/jquery-3.1.1.min.js', array( 'jquery3' ), false, true );
+    wp_register_script( 'jquery3', 'https://code.jquery.com/jquery-3.1.1.min.js', array( ), false, true );
     wp_enqueue_script( 'jquery3' );
 
     wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
