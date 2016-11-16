@@ -78,7 +78,7 @@ gulp.task('styles', function() {
 gulp.task('jshint', function(){
   var src  = [
     'Gulpfile.js',
-    path.src  + 'scripts/modules/{,*/}*.js'
+    'js/modules/{,*/}*.js'
   ];
 
   gulp.src(src)
@@ -88,7 +88,7 @@ gulp.task('jshint', function(){
 
 
 gulp.task('scripts', function(){
-  var bundler = browserify(path.src + 'js/main.js');
+  var bundler = browserify('js/main.js');
 
   bundler.transform(plugins.babelify, {
       presets: ['es2015']
