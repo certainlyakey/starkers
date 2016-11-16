@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all single posts (pages do not count)
+ * The Template for displaying all singulars
  *
  * @package   WordPress
  * @subpackage  Starkers
