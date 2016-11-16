@@ -26,11 +26,11 @@
   ======================================================================================================================== */
 
   function starkers_script_enqueuer() {
-    wp_register_script( 'site', get_template_directory_uri().'/js/scripts.min.js', array( 'jquery'/*, 'slick'*/ ), false, true );
+    wp_register_script( 'site', get_template_directory_uri().'/js/scripts.min.js', array( 'jquery3' ), false, true );
     wp_enqueue_script( 'site' );
-
-    // wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js', array(), false, true );
-    // wp_enqueue_script( 'slick' );
+    
+    wp_register_script( 'jquery3', 'https://code.jquery.com/jquery-3.1.1.min.js', array( 'jquery3' ), false, true );
+    wp_enqueue_script( 'jquery3' );
 
     wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
     wp_enqueue_style( 'screen' );
