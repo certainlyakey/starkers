@@ -11,10 +11,9 @@
 
   @at-root {
     #{$base_class}__item {
-      // show svg icon from the sprite
-      // filename is "icon-phone"
-      @extend .u-spr-svg-icon-phone;
-      @extend .u-spr-svg-icon-phone-size;
+      // show svg icon from the sprite, filename is "icon-phone"
+      // @extend .u-spr-svg-icon-phone;
+      // @extend .u-spr-svg-icon-phone-size;
     }
   }
 }
