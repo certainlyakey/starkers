@@ -19,7 +19,9 @@ Author:       Aleksandr Beliaev
 
 // !Site abstracts
 @import 'abstracts/_variables';
+// @import 'abstracts/_grid-settings';
 @import 'abstracts/_mixins';
+// @import 'abstracts/objects/_object';
 
 // !Vendors
 @import 'vendors/_vendors';
@@ -34,22 +36,19 @@ Author:       Aleksandr Beliaev
 // !Generated
 // @import 'generated/_svg-sprite';
 
-// !Components
-@import 'components/search/_search';
-
 // !Layout
 @import 'layout/_header';
 @import 'layout/_footer';
 @import 'layout/_main';
 @import 'layout/_sidebar';
 
-<<<<<<< 2723ec0407dd4144669333e13558f44f900cba31
 // !Components
 @import 'components/menu/_menu';
-@import 'components/search/_search';
 
-=======
->>>>>>> moved components to load before layouts
+// Apply the components to corresponding component classes
+@import '_main';
+
+// The file 
 // !Pages
 @import 'pages/_home';
 @import 'pages/_single';
@@ -57,4 +56,3 @@ Author:       Aleksandr Beliaev
 // !Themes
 @import 'themes/_admin';
 @import 'themes/_theme';
-
