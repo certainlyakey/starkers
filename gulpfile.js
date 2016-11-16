@@ -58,7 +58,7 @@ gulp.task('styles', function() {
   }))
   .pipe(cssnano())
   .pipe(concat('style.css'))
-  .pipe(plugins.sourcemaps.write())
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('./'))
   .pipe(notify("CSS compiled and concatenated successfully!"))
 });
@@ -82,8 +82,8 @@ gulp.task('jshint', function(){
   ];
 
   gulp.src(src)
-    .pipe(plugins.jshint())
-    .pipe(plugins.jshint.reporter(require('jshint-stylish')));
+    .pipe(jshint())
+    .pipe(jshint.reporter(require('jshint-stylish')));
 });
 
 
