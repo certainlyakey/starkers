@@ -40,8 +40,9 @@ gulp.task('svg-sprites', function() {
   gulp.src('src/img/svg/*.svg')
     .pipe(svgsprite(svgSpriteConfig)).on('error', function(error){ console.log(error); })
     .pipe(gulp.dest('./'))
-    .pipe(notify("SVG sprite created successfully!"))
+    .pipe(notify('SVG sprite created successfully!'));
 });
+
 
 gulp.task('styles', function() {
   gulp.src(['scss/style.scss'])
@@ -60,7 +61,7 @@ gulp.task('styles', function() {
   .pipe(concat('style.css'))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('./'))
-  .pipe(notify("CSS compiled and concatenated successfully!"))
+  .pipe(notify('CSS compiled and concatenated successfully!'));
 });
 
 // gulp.task('lint', function() {
@@ -77,8 +78,8 @@ gulp.task('styles', function() {
  */
 gulp.task('jshint', function(){
   var src  = [
-    'Gulpfile.js',
-    'js/modules/{,*/}*.js'
+    // 'Gulpfile.js',
+    'js/modules/*.js'
   ];
 
   gulp.src(src)
@@ -98,7 +99,7 @@ gulp.task('scripts', function(){
     .pipe(vinylSourceStream('scripts.min.js'))
     .pipe(vinylBuffer())
     .pipe(gulp.dest('js'))
-    .pipe(notify('JS compiled and concatenated successfully!'))
+    .pipe(notify('JS compiled and concatenated successfully!'));
 });
 
 // gulp.task('scripts', function() {
@@ -109,13 +110,43 @@ gulp.task('scripts', function(){
 //     .pipe(notify("JS compiled successfully!"))
 // });
 
-gulp.task('watch', function(){
-  gulp.watch('src/img/svg/*.svg', ['svg-sprites']);
-  gulp.watch('scss/**/*.scss', ['styles']);
-  gulp.watch('js/modules/*.js', ['jshint', 'scripts']);
+// gulp.task('watch', function(){
+//   // gulp.watch('src/img/svg/*.svg', ['svg-sprites']);
+//   gulp.watch('scss/**/*.scss', ['styles']);
+//   gulp.watch('js/modules/*.js', ['jshint', 'scripts']);
+// });
+
+gulp.task('default', [
+  'styles',
+  'scripts'
+  // 'images',
+  // 'modernizr'
+]);
+
+gulp.task('watch', ['default'], function(){
+  // Gulpfile.js:
+  gulp.watch('Gulpfile.js', [
+    'jshint'
+  ]);
+
+  // Scripts:
+  gulp.watch('js/modules/*.js', [
+    'jshint',
+    'scripts'
+  ]);
+
+  // Styles:
+  gulp.watch('scss/**/*.scss', [
+    'styles'
+  ]);
+
+  // // Images:
+  // gulp.watch(path.src + '/images/{,*/}*.{gif,jpg,png,svg}', [
+  //   'images'
+  // ]);
 });
 
 
-gulp.task('build', ['svg-sprites', 'styles', 'jshint', 'scripts']);
+// gulp.task('build', ['svg-sprites', 'styles', 'jshint', 'scripts']);
 
-gulp.task('default', ['build', 'watch']);
+// gulp.task('default', ['build', 'watch']);
