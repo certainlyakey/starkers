@@ -1,3 +1,5 @@
+'use strict';
+
 //npm install --save-dev "name-of-gulp-plugin"
 //npm install to get all the deps
 var gulp              = require('gulp');
@@ -78,7 +80,7 @@ gulp.task('styles', function() {
  */
 gulp.task('jshint', function(){
   var src  = [
-    // 'Gulpfile.js',
+    'Gulpfile.js',
     'js/modules/*.js'
   ];
 
