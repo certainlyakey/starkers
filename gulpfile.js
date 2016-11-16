@@ -19,7 +19,7 @@ var vinylSourceStream = require('vinyl-source-stream');
 var vinylBuffer       = require('vinyl-buffer');
 
 
-svgSpriteConfig  = {
+var svgSpriteConfig  = {
   mode           : {
     css          : {
       bust       : true,
@@ -90,15 +90,15 @@ gulp.task('jshint', function(){
 gulp.task('scripts', function(){
   var bundler = browserify('js/main.js');
 
-  bundler.transform(plugins.babelify, {
+  bundler.transform(babelify, {
       presets: ['es2015']
     })
     .bundle()
     .on('error', gutil.log)
-    .pipe(plugins.vinylSourceStream('scripts.min.js'))
-    .pipe(plugins.vinylBuffer())
+    .pipe(vinylSourceStream('scripts.min.js'))
+    .pipe(vinylBuffer())
     .pipe(gulp.dest('js'))
-    .pipe(plugins.notify('JS compiled and concatenated successfully!'))
+    .pipe(notify('JS compiled and concatenated successfully!'))
 });
 
 // gulp.task('scripts', function() {
@@ -112,7 +112,7 @@ gulp.task('scripts', function(){
 gulp.task('watch', function(){
   gulp.watch('src/img/svg/*.svg', ['svg-sprites']);
   gulp.watch('scss/**/*.scss', ['styles']);
-  gulp.watch('js/*.js', ['jshint', 'scripts']);
+  gulp.watch('js/modules/*.js', ['jshint', 'scripts']);
 });
 
 
