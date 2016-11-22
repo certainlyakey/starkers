@@ -1,4 +1,4 @@
-This is heavily reworked version of Starkers theme available [here](https://github.com/viewportindustries/starkers) (starting from v4.0).
+This is a heavily reworked version of Starkers theme available [here](https://github.com/viewportindustries/starkers) (starting from v4.0).
 
 It borrows from [BEM](http://www.bem.info)/[7-1 pattern](https://sass-guidelin.es/#architecture)/[ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)/[Harry Roberts' namespaces](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/#the-namespaces) idea.
 
@@ -18,10 +18,7 @@ BEM naming style: `component__element_modifier`.
 
 ##TODO
 
-1. replace extends with mixins (see [this](http://csswizardry.com/2016/02/mixins-better-for-performance/))
 3. remove `external/starkers-utilities.php`
 4. move more folders into `src` directory (files that shouldn't be on prod server)
 5. remove `search.php`
-6. define more clearly when an object should be created
 7. think about how to introduce a convenient @print vs @screen workflow (so that we could easily separate all screen-related things already during work)
-8. add examples of mixin-encapsulated components
