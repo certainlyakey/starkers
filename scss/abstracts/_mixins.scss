@@ -1,7 +1,7 @@
 //Per site mixins
 
 // !Utilities
-%u-underlinedhover {
+@mixin u-underlinedhover {
   a:hover {
     text-decoration:underline; // or border-bottom, or pseudoelement?.. You decide!
   }
@@ -9,13 +9,13 @@
 
 
 // !Objects
-%o-horizontal-text-menu {
+@mixin o-horizontal-text-menu {
   // reuse me here and there!
 }
 
 
 // !Themed styles
-%t-smallcaps-head {
+@mixin t-section-head {
   text-transform:uppercase; 
   letter-spacing:.4px; 
 }

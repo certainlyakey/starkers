@@ -21,7 +21,8 @@ $lh:23px;
 $mainwidth:940px;
 
 //Transitions & animations
-$transition-main:all ease-out .4s;
+// note that property is omitted 
+$transition-main:ease-out .4s;
 
 //Breakpoints
 // With mq():
