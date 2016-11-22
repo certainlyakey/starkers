@@ -38,7 +38,6 @@
       the_content();
     }
     ?>
-    ?>
   </div>
 <?php 
 //do not close article yet if custom page template is shown
