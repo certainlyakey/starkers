@@ -36,17 +36,17 @@ Author:       Aleksandr Beliaev
 // !Generated
 // @import 'generated/_svg-sprite';
 
-// !Layout
-@import 'layout/_header';
-@import 'layout/_footer';
-@import 'layout/_main';
-@import 'layout/_sidebar';
-
 // !Components
 @import 'components/menu/_menu';
 
 // Apply the components to corresponding component classes
 @import '_main';
+
+// !Layout
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'layout/_main';
+@import 'layout/_sidebar';
 
 // The file 
 // !Pages
