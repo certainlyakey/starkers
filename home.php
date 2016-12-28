@@ -10,7 +10,7 @@
 $news_archive_displayed = false;
 if (get_query_var('post_type') === 'post') {
   add_filter('body_class','add_bodyclass_newsarchive');
-  include TEMPLATEPATH . '/index.php';
+  include get_stylesheet_directory() . '/index.php';
   //if (get_query_var('post_type') === 'post' && is_home()) {echo 'this is news page and not home page';}
 } else { ?>
 
