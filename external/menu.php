@@ -1,9 +1,9 @@
 <?php
 // usage: 
-// custom_wp_nav_menu('frontmenu','c-assortedmenu','nav','frontmenu_thumb');
+// projectprefix_wp_nav_menu('frontmenu','c-assortedmenu','nav','frontmenu_thumb');
 // or:
-// custom_wp_nav_menu('frontmenu','c-assortedmenu','');
-function custom_wp_nav_menu($menu_location, $menu_class_base, $container = 'nav', $image_size = null, $additional_classes = '') {
+// projectprefix_wp_nav_menu('frontmenu','c-assortedmenu','');
+function projectprefix_wp_nav_menu($menu_location, $menu_class_base, $container = 'nav', $image_size = null, $additional_classes = '') {
   if ($container === 'section') {
     echo '<section class="'.$menu_class_base.'__section">';
     $locations = get_nav_menu_locations();

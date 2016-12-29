@@ -3,7 +3,7 @@
   if (is_singular()) {
     $class_prefix = "c-single-content";
   }
-  if (custom_is_archive()) {
+  if (projectprefix_is_post_listing()) {
     $class_prefix = "c-post-item";
   }
 ?>
@@ -22,7 +22,7 @@
 
     //post item without excerpt
     if (!is_singular() && !has_excerpt()) {
-      echo content(200,$post->ID); 
+      echo projectprefix_content(200,$post->ID); 
     } 
     //post item with excerpt
     else if (!is_singular() && has_excerpt()) {

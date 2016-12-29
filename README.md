@@ -4,6 +4,8 @@ It borrows from [BEM](http://www.bem.info)/[7-1 pattern](https://sass-guidelin.e
 
 BEM naming style: `component__element_modifier`.
 
+Before usage replace all `projectprefix_` named functions with your prefix and `site_text_domain` with your text domain name (for localization).
+
 ##Namespaces cheatsheet
 
 - `o-`: object - reusable, doesn't depend on specific styling (for example, grids, inline lists etc). Should never be overriden
@@ -18,7 +20,7 @@ BEM naming style: `component__element_modifier`.
 
 ##TODO
 
-3. remove `external/starkers-utilities.php`
+3. prepare remaining text strings for localization
 4. move more folders into `src` directory (files that shouldn't be on prod server)
 5. remove `search.php`
 7. think about how to introduce a convenient @print vs @screen workflow (so that we could easily separate all screen-related things already during work)
